@@ -31,8 +31,8 @@ Imagine you want to update the software of thousands of music players that are a
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourrepo/music-player-update-service.git
-   cd music-player-update-service
+   git clone https://github.com//rayanisran/play-network-solution.git
+   cd play-network-solution
    ```
 
 2. Install dependencies:

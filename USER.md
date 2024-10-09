@@ -12,8 +12,8 @@
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourrepo/music-player-update-service.git
-   cd music-player-update-service
+   git clone https://github.com/rayanisran/play-network-solution.git
+   cd play-network-solution
    ```
 
 2. **Install Dependencies**:
