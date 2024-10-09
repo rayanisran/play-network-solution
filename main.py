@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """
 Description: Main script that runs a scheduled task every 15 minutes to update MAC addresses.
 Author: Rayan
@@ -14,10 +11,12 @@ import requests
 import schedule
 import time
 
+#######################################################################
 # Configure logging
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s',
-                    handlers=[logging.FileHandler("update_player.log")])
+                    handlers=[logging.FileHandler("update_player.log")]
+                    )
 
 API_URL = "http://127.0.0.1:5000/profiles/clientId:{macaddress}"
 
@@ -30,6 +29,7 @@ AUTH_TOKEN = config['credentials']['AUTH_TOKEN']
 
 SCHEDULED_DURATION = 15     # in minutes
 DELAY = 0.01                # seconds
+#######################################################################
 
 
 def read_csv(file_path):
@@ -96,7 +96,7 @@ def main(csv_file_path):
 
     for mac_address in mac_addresses:
         update_player(mac_address)
-        time.sleep(DELAY)
+        time.sleep(DELAY) # rate limit
 
 
 def job():
