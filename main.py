@@ -109,7 +109,6 @@ def job():
 if __name__ == "__main__":
     logging.info("Starting scheduler...")
     job()
+    schedule.every(SCHEDULED_DURATION).minutes.do(job)
     while True:
-        schedule.every(SCHEDULED_DURATION).minutes.do(job)
         schedule.run_pending()
-        time.sleep(1)  # Wait for one second before checking again
