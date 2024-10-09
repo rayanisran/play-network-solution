@@ -1,8 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """
-Description: Local server with Flask
+Description: Local server with Flask to read a request and return a response.
 Author: Rayan
 Date Created: 2024-10-08
 """
@@ -24,7 +21,7 @@ def update_profile(mac_address):
 
     client_id = request.headers.get('x-client-id')
     auth_token = request.headers.get('x-authentication-token')
-
+    
     # Check if client_id is missing
     if not client_id:
         return jsonify(responses["unauthorized_missing_client_id"]), 401
