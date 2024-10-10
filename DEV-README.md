@@ -82,10 +82,10 @@ Headers:
 #### Possible Responses
 
 - **200 OK**: Profile update success
-- **401 Unauthorized**: Missing `clientId` or `auth-token`
+- **401 Unauthorized**: Missing or invalid `clientId` or `auth-token`
 - **404 Not Found**: Player profile not found
 - **409 Conflict**: Profile conflict error
-- **500 Internal Server Error**: Random server error
+- **500 Internal Server Error**: Internal server error
 
 ###  Adding New Responses
 
