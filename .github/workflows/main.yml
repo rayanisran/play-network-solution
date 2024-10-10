@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master  # Run the workflow when code is pushed to 'master' branch
+      - master  # for this test, just run the workflow when code is pushed to master
 
 jobs:
   test:
