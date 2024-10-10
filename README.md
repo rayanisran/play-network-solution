@@ -56,7 +56,7 @@ You should observe the following if using the VS Code Terminal:
    ```
 Alternatively, if using Windows, run the `main.bat` script, which executes both command.
 
-An output log containing the response of each request is listed in `update_player.log.`
+After handling a request, an output log containing the response of each request is generated in an `update_player.log.` file in the main directory.
 
 ## 🙋 Need Help?
 
