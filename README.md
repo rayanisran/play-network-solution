@@ -49,7 +49,7 @@ You should observe the following if using the VS Code Terminal:
 ![Terminal output after running server](https://github.com/rayanisran/play-network-solution/blob/master/readme-pics/p-server.png?raw=true)
 
 
-2. **Start the Update Script**:
+2. **Start the Update Script on another terminal window**:
 
    ```bash
    python main.py
