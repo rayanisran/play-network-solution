@@ -28,3 +28,19 @@ jobs:
       - name: Run unit tests
         run: |
           python -m unittest discover  # Run unit tests
+
+      - name: Run Mock API (Linux & macOS)
+        if: matrix.os != 'windows-latest'
+        run: |
+          nohup python mock_api.py &  # Run mock API in background for Linux/macOS
+          sleep 5  # Give it time to start up
+
+      - name: Run main.py (Linux & macOS)
+        if: matrix.os != 'windows-latest'
+        run: |
+          python main.py  # Run the main.py script
+
+      - name: Run Mock API (.bat file for Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          ./start_mock_api.bat  # Run the .bat file in Windows
