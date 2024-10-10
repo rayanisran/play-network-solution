@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """
 Description: A list of unit tests to simulate every API response.
 Author: Rayan
