@@ -54,7 +54,7 @@ You should observe the following if using the VS Code Terminal:
    ```bash
    python main.py
    ```
-Alternatively, run the `main.bat` script, which executes both command.
+Alternatively, if using Windows, run the `main.bat` script, which executes both command.
 
 An output log containing the response of each request is listed in `update_player.log.`
 
