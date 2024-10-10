@@ -7,18 +7,18 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}  # Specify the operating systems to test on
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]  # Define OS matrix (Linux, Windows, macOS)
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - uses: actions/checkout@v2  # Check out the repository code
 
       - name: Set up Python
-        uses: actions/setup-python@v2  # Set up the Python environment
+        uses: actions/setup-python@v2  # Set up environment
         with:
-          python-version: '3.8'  # Use Python version 3.8
+          python-version: '3.8'
 
       - name: Install dependencies
         run: |

@@ -6,9 +6,17 @@ Date Created: 2024-10-08
 
 from flask import Flask, request, jsonify
 import random
+import configparser
 import json
 
 app = Flask(__name__)
+
+config = configparser.ConfigParser()
+config.read('keys.conf')
+
+VALID_CLIENT_ID = config['credentials']['CLIENT_ID']
+VALID_AUTH_TOKEN = config['credentials']['AUTH_TOKEN']
+
 
 # Load JSON responses from file
 with open('responses.json') as f:
@@ -29,6 +37,10 @@ def update_profile(mac_address):
     # Check if auth_token is missing
     if not auth_token:
         return jsonify(responses["unauthorized_missing_auth_token"]), 401
+    
+    # Validate the credentials
+    if client_id != VALID_CLIENT_ID or auth_token != VALID_AUTH_TOKEN:
+        return jsonify(responses["unauthorized_invalid_credentials"]), 401
 
     # Check if MAC address matches "notfound" for simulation
     if mac_address.startswith("notfound"):

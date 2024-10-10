@@ -28,7 +28,7 @@ CLIENT_ID = config['credentials']['CLIENT_ID']
 AUTH_TOKEN = config['credentials']['AUTH_TOKEN']
 
 SCHEDULED_DURATION = 15     # in minutes
-DELAY = 0.01                # seconds
+DELAY = 0.01                # in seconds, to prevent rate-limiting
 #######################################################################
 
 
@@ -55,9 +55,9 @@ def update_player(mac_address):
     data = {
         "profile": {
             "applications": [
-                {"applicationId": "music_app", "version": "v1.4.11"},
-                {"applicationId": "diagnostic_app", "version": "v1.2.7"},
-                {"applicationId": "settings_app", "version": "v1.1.6"}
+                {"applicationId": "music_app", "version": "v1.4.10"},
+                {"applicationId": "diagnostic_app", "version": "v1.2.6"},
+                {"applicationId": "settings_app", "version": "v1.1.5"}
             ]
         }
     }
@@ -72,7 +72,8 @@ def update_player(mac_address):
 
 
 def handle_response(response, mac_address):
-    """Handle the server response for the player update request."""
+    """Handle the server response for the player update request.
+    Since there aren't too many of these we can display them as a set of nice if/elifs."""
     if response.status_code == 200:
         logging.info(f"Successfully updated player with MAC: {mac_address}")
     elif response.status_code == 401:
@@ -99,7 +100,7 @@ def main(csv_file_path):
         time.sleep(DELAY) # rate limit
 
 
-def job():
+def update_players_job():
     """Scheduled job to run every 15 minutes."""
     csv_file_path = 'test_players.csv'
     logging.info("Running scheduled update job...")
@@ -108,7 +109,7 @@ def job():
 
 if __name__ == "__main__":
     logging.info("Starting scheduler...")
-    job()
-    schedule.every(SCHEDULED_DURATION).minutes.do(job)
+    update_players_job()
+    schedule.every(SCHEDULED_DURATION).minutes.do(update_players_job)
     while True:
         schedule.run_pending()
