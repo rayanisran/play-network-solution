@@ -104,7 +104,7 @@ def job():
     csv_file_path = 'test_players.csv'
     logging.info("Running scheduled update job...")
     main(csv_file_path)
-
+    print("Batch update processed.")
 
 if __name__ == "__main__":
     logging.info("Starting scheduler...")
