@@ -107,6 +107,7 @@ def update_players_job():
     main(csv_file_path)
     print("Batch update processed.")
 
+
 if __name__ == "__main__":
     logging.info("Starting scheduler...")
     update_players_job()
