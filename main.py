@@ -110,6 +110,7 @@ def update_players_job():
 
 if __name__ == "__main__":
     logging.info("Starting scheduler...")
+    # note: we also run the job when the app is first opened
     update_players_job()
     schedule.every(SCHEDULED_DURATION).minutes.do(update_players_job)
     while True:
