@@ -31,7 +31,7 @@ jobs:
 
       - name: Run  API
         run: |
-          python mock_api.py &  # Run mock API in background
+          python mock_api.py &  # Run API in background
           sleep 5  # Give it time to start up
 
       - name: Run main.py

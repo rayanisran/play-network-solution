@@ -11,7 +11,7 @@ import os
 import random
 import csv
 import logging
-from main import update_player
+from main import update_player, update_players_job
 
 TEST_MAC_ADDRESS = 'a1:bb:cc:dd:ee:ff'
 # Configure logging for tests
@@ -93,6 +93,11 @@ class TestUpdateMusicPlayers(unittest.TestCase):
         self.assertEqual(response, 409)
         logging.info("Test passed: update_player_conflict - Response was 409")
         
-        
+ 
+    @patch('main.update_player')  # Mock the update_player function
+    def test_update_players_job(self, mock_update_player):
+        update_players_job()  # Call the job directly
+        logging.info("Test passed: update_players_job - Job ran successfully without errors.")
+               
 if __name__ == '__main__':
     unittest.main()
