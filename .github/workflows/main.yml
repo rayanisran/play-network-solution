@@ -3,7 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - master  # for this test, just run the workflow when code is pushed to master
+      - master  # run workflow when code is pushed to master
+  pull_request:
+    branches:
+      - master  # also when a PR is submitted
 
 jobs:
   test:
@@ -29,7 +32,7 @@ jobs:
         run: |
           python mock_api.py &  # Run API in background
           sleep 5  # Give it time to start up
-          
+
       - name: Run unit tests
         run: |
           python -m unittest discover  # Run unit tests
