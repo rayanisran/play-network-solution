@@ -30,10 +30,11 @@
    CLIENT_ID = "your_client_id"
    AUTH_TOKEN = "your_auth_token"
    ```
+WARNING: add this file to .gitignore.
 
 ### Prepare Player Profiles
 
-- Create `test_players.csv` with MAC addresses, each on a new line (note that a default already exists).
+- Create `test_players.csv` with MAC addresses, each on a new line (note that a default file already exists).
 
 ## 🛠️ Running the Service
 
@@ -54,4 +55,4 @@ An output log containing the response of each request is listed in `update_playe
 
 ## 🙋 Need Help?
 
-For assistance, create an issue in the GitHub repository.
+For assistance, create an issue in the GitHub repository!
