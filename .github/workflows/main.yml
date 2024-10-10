@@ -13,33 +13,33 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]  # Define OS matrix (Linux, Windows, macOS)
 
     steps:
-    - uses: actions/checkout@v2  # Check out the repository code
+      - uses: actions/checkout@v2  # Check out the repository code
 
-    - name: Set up Python
-      uses: actions/setup-python@v2  # Set up the Python environment
-      with:
-        python-version: '3.8'  # Use Python version 3.8
+      - name: Set up Python
+        uses: actions/setup-python@v2  # Set up the Python environment
+        with:
+          python-version: '3.8'  # Use Python version 3.8
 
-    - name: Install dependencies
-      run: |
-      python -m pip install --upgrade pip  # Upgrade pip
-      if [[ "$RUNNER_OS" == "Linux" ]]; then
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip  # Upgrade pip
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            # For Linux
+            if [ -f requirements.txt ]; then
+              pip install -r requirements.txt
+            fi
+          elif [[ "$RUNNER_OS" == "Windows" ]]; then
+            # For Windows
+            if (Test-Path requirements.txt) {
+              pip install -r requirements.txt
+            }
+          elif [[ "$RUNNER_OS" == "macOS" ]]; then
+            # For macOS
+            if [ -f requirements.txt ]; then
+              pip install -r requirements.txt
+            fi
+          fi
 
-        # For Linux
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      elif [[ "$RUNNER_OS" == "Windows" ]]; then
-
-        # For Windows
-        if (Test-Path requirements.txt) {
-          pip install -r requirements.txt
-        }
-      
-      elif [[ "$RUNNER_OS" == "macOS" ]]; then
-        # For macOS
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      fi
-
-    - name: Run unit tests
-      run: |
-        python -m unittest discover  # Run unit tests
+      - name: Run unit tests
+        run: |
+          python -m unittest discover  # Run unit tests
