@@ -44,6 +44,11 @@ WARNING: add this file to .gitignore.
    python mock_api.py
    ```
 
+You should observe the following if using the VS Code Terminal:
+
+![Terminal output after running server](https://github.com/rayanisran/play-network-solution/blob/master/readme-pics/p-server.png?raw=true)
+
+
 2. **Start the Update Script**:
 
    ```bash
